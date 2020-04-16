@@ -10,9 +10,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.screens.MainGameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
 import com.mygdx.game.screens.WelcomeScreen;
+
 
 import java.awt.*;
 
@@ -20,12 +23,14 @@ public class HorsSolGame extends Game {
 	SpriteBatch batch;
 	Texture img;
 	BitmapFont font;
+	Stage welcomeStage;
 	//double width = Gdx.graphics.getWidth();
 	//double height = Gdx.graphics.getHeight();
 
 	
 	@Override
 	public void create () {
+		welcomeStage = new Stage(new ScreenViewport());
 		batch = new SpriteBatch();
 		img = new Texture("zeldapixel.png");
 		font = new BitmapFont();
@@ -49,6 +54,10 @@ public class HorsSolGame extends Game {
 	}
 
 	public BitmapFont getFont() { return font; }
+
+	public Stage getWelcomeStage() {
+		return welcomeStage;
+	}
 
 //	public double getHeight() {
 //		return height;
