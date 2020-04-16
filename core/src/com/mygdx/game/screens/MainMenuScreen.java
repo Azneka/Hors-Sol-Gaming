@@ -3,6 +3,7 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -23,6 +24,7 @@ public class MainMenuScreen extends ScreenAdapter {
     //Stage stage;
     //TextureAtlas atlas;
     //Skin skin;
+
 
 
     public MainMenuScreen(HorsSolGame game) {
@@ -51,9 +53,11 @@ public class MainMenuScreen extends ScreenAdapter {
     public void render(float delta) {
         Gdx.gl.glClearColor(.29f,0,.12f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        game.getBatch().begin();
-        game.getFont().draw(game.getBatch(),"MAIN MENU",Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        game.getBatch().end();
+        SpriteBatch batch = game.getBatch();
+        BitmapFont font = game.getFont();
+        batch.begin();
+        font.draw(game.getBatch(),"MAIN MENU",400,440);
+        batch.end();
 
     }
 

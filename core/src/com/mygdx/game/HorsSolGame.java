@@ -13,11 +13,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.screens.MainGameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
 
+import java.awt.*;
+
 public class HorsSolGame extends Game {
 	SpriteBatch batch;
 	Texture img;
 	BitmapFont font;
 	ShapeRenderer shapeRenderer;
+
 	
 	@Override
 	public void create () {
