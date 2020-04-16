@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.screens.MainGameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
+import com.mygdx.game.screens.WelcomeScreen;
 
 import java.awt.*;
 
@@ -19,7 +20,8 @@ public class HorsSolGame extends Game {
 	SpriteBatch batch;
 	Texture img;
 	BitmapFont font;
-	ShapeRenderer shapeRenderer;
+	//double width = Gdx.graphics.getWidth();
+	//double height = Gdx.graphics.getHeight();
 
 	
 	@Override
@@ -27,8 +29,7 @@ public class HorsSolGame extends Game {
 		batch = new SpriteBatch();
 		img = new Texture("zeldapixel.png");
 		font = new BitmapFont();
-		shapeRenderer = new ShapeRenderer();
-		setScreen(new MainMenuScreen(this));
+		setScreen(new WelcomeScreen(this));
 	}
 
 	//@Override
@@ -41,7 +42,6 @@ public class HorsSolGame extends Game {
 		batch.dispose();
 		img.dispose();
 		font.dispose();
-		shapeRenderer.dispose();
 	}
 
 	public SpriteBatch getBatch() {
@@ -50,4 +50,11 @@ public class HorsSolGame extends Game {
 
 	public BitmapFont getFont() { return font; }
 
+//	public double getHeight() {
+//		return height;
+//	}
+//
+//	public double getWidth() {
+//		return width;
+//	}
 }

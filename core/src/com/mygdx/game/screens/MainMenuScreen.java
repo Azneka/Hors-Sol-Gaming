@@ -41,7 +41,7 @@ public class MainMenuScreen extends ScreenAdapter {
     public void show() {
         Gdx.input.setInputProcessor(new InputAdapter() {
             public boolean keyDown(int keyCode) {
-                if(keyCode== Input.Keys.SPACE) {
+                if(keyCode==Input.Keys.SPACE) {
                     game.setScreen(new MainGameScreen(game));
                 }
                 return true;
@@ -56,7 +56,7 @@ public class MainMenuScreen extends ScreenAdapter {
         SpriteBatch batch = game.getBatch();
         BitmapFont font = game.getFont();
         batch.begin();
-        font.draw(game.getBatch(),"MAIN MENU",400,440);
+        font.draw(batch,"MAIN MENU",700,800);
         batch.end();
 
     }
