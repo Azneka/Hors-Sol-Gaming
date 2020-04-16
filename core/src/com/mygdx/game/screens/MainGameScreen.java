@@ -10,6 +10,7 @@ public class MainGameScreen extends ScreenAdapter {
 
     HorsSolGame game;
     Texture img;
+    boolean win;
     int speed=4;
     int x;
     int y;
@@ -20,20 +21,6 @@ public class MainGameScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-//        Gdx.Input.setInputProcessor(new InputAdapter() {
-//            public void moveCharacter() {
-//                if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
-//                    y+=speed;
-//                } else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-//                    y-=speed;//speed*delta;
-//                } else if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-//                    x-=speed;//speed*delta;
-//                } else if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-//                    x+=speed;//speed*delta;
-//                }
-//            }
-//        });
-
 
         img = new Texture("zeldapixel.png");
     }
@@ -83,6 +70,12 @@ public class MainGameScreen extends ScreenAdapter {
     @Override
     public void dispose() {
 
+    }
+
+    public void victoire() {
+        if(win==true) {
+            game.setScreen(new EndScreen(game));
+        }
     }
 
 
