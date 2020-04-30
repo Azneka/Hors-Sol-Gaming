@@ -1,20 +1,24 @@
 package com.mygdx.game.screens;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.HorsSolGame;
+import com.mygdx.game.actors.ParameterButton;
 import javafx.scene.control.Skin;
 import sun.security.pkcs11.wrapper.Constants;
 
@@ -24,6 +28,7 @@ public class MainMenuScreen extends ScreenAdapter {
 
     HorsSolGame game;
     Stage mainMenuStage;
+    ParameterButton playButton;
     //SpriteBatch batch;
     //TextureAtlas atlas;
     //Skin skin;
@@ -52,23 +57,34 @@ public class MainMenuScreen extends ScreenAdapter {
             }
         });
 
+        //Gdx.input.setInputProcessor(mainMenuStage);
 
-        //ClickListener leftClickListener = new ClickListener();
-        Table table = new Table();
+        //createTable(600,600,300,300); > créer cette méthode
+        Table tableTitle = new Table();
+        tableTitle.setSize(300,300);
+        tableTitle.setPosition(600,600);
+        tableTitle.setBounds(600,600,300,300);
+        mainMenuStage.addActor(tableTitle);
 
-        table.setSize(300,300);
-        table.setPosition(800,400);
-        mainMenuStage.addActor(table);
 
-        BitmapFont fontSimple = new BitmapFont();
-        fontSimple.getData().setScale(2);
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-        textButtonStyle.font = fontSimple;
-        TextButton playButton = new TextButton("JOUER",textButtonStyle);
-        playButton.setPosition(800,400);
-        //playButton.addListener(leftClickListener);
+        Label.LabelStyle labelStyleTitle = new Label.LabelStyle();
+        BitmapFont fontTitle = new BitmapFont();
+        labelStyleTitle.font = fontTitle;
+        fontTitle.getData().setScale(3);
+        Label labelTitle = new Label("MAIN MENU", labelStyleTitle);
+        labelTitle.setPosition(600,1000);
+        labelTitle.setAlignment(Align.center);
 
-        table.add(playButton);
+        tableTitle.add(labelTitle);
+
+
+        playButton = new ParameterButton(600,400);
+        play();
+        playButton.setTouchable(Touchable.enabled);
+        mainMenuStage.addActor(playButton);
+
+
+
 
 
 //        playButton.addListener(new ChangeListener() {
@@ -95,12 +111,50 @@ public class MainMenuScreen extends ScreenAdapter {
 //            }
 //        });
 
-//        playButton.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                game.setScreen(new MainGameScreen(game) );
-//            };
-//        });
+
+
+    }
+
+    public TextButton createPlayButton() {
+
+        final Table tablePlayButton = new Table();
+        tablePlayButton.setSize(300,300);
+        tablePlayButton.setPosition(600,400);
+        //tablePlayButton.setBounds(600,400,300,300);
+
+
+        tablePlayButton.setTouchable(Touchable.enabled);
+
+        mainMenuStage.addActor(tablePlayButton);
+
+        BitmapFont fontSimple = new BitmapFont();
+        fontSimple.getData().setScale(2);
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.font = fontSimple;
+        TextButton playButton = new TextButton("JOUER",textButtonStyle);
+        playButton.setPosition(600,400);
+
+        tablePlayButton.add(playButton);
+
+        return playButton;
+    }
+
+    public void play() {
+
+        //playButton = new ParameterButton(600,400);
+
+        Table tableButton = new Table();
+        tableButton.setSize(400,400);
+        tableButton.setPosition(600,400);
+        tableButton.setBounds(600,400,400,400);
+        mainMenuStage.addActor(tableButton);
+
+        tableButton.add(playButton.creerLabel("JOUER"));
+        tableButton.add(playButton);
+
+        if(playButton.getStarted()) {
+            game.setScreen(new MainGameScreen(game));
+        }
 
     }
 
@@ -112,11 +166,22 @@ public class MainMenuScreen extends ScreenAdapter {
         //BitmapFont font = game.getFont();
         BitmapFont font = new BitmapFont();
 
-        mainMenuStage.act();
+        mainMenuStage.act(Gdx.graphics.getDeltaTime());
         mainMenuStage.draw();
 
+//        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+//            game.setScreen(new MainGameScreen(game));
+//        }
+
+//        playButton.addListener(new ClickListener() {
+//           @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                game.setScreen(new MainGameScreen(game) );
+//            };
+//        });
+
         batch.begin();
-        font.draw(batch,"MAIN MENU",700,800);
+        //font.draw(batch,"MAIN MENU",700,800);
         batch.end();
 
     }

@@ -42,18 +42,26 @@ public class WelcomeScreen extends ScreenAdapter {
             }
         });
 
-        Label.LabelStyle labelStyleTitle = new Label.LabelStyle();
-        BitmapFont fontTitle = new BitmapFont();
+        afficherTextes();
+
+
+
+    }
+
+    public void afficherTextes() {
+
+        Label.LabelStyle labelStyleTitle = new Label.LabelStyle(); // création d'un style d'écriture pour le titre
+        BitmapFont fontTitle = new BitmapFont(); // création d'une police pour le titre
         fontTitle.getData().setScale(4);
         labelStyleTitle.font = fontTitle;
-        //labelStyleTitle.fontColor = Color.RED;//rgba4444(Color.RED,Color.GREEN,#05468,#45869);
-        Label.LabelStyle labelStyleSimple = new Label.LabelStyle();
-        BitmapFont fontSimple = new BitmapFont();
+        labelStyleTitle.fontColor = new Color(0,0.1f,0.1f,0.5f);
+        Label.LabelStyle labelStyleSimple = new Label.LabelStyle(); // création d'un style d'écriture simple
+        BitmapFont fontSimple = new BitmapFont(); // création d'une police simple
         fontSimple.getData().setScale(2);
         labelStyleSimple.font = fontSimple;
 
 
-        Label labelTitle = new Label("Week-end à la campagne",labelStyleTitle);
+        Label labelTitle = new Label("Week-end à la campagne",labelStyleTitle); // création du texte pour le titre
         labelTitle.setSize(100,30);
         labelTitle.setPosition(700,550);
         labelTitle.setAlignment(Align.center);
@@ -67,11 +75,10 @@ public class WelcomeScreen extends ScreenAdapter {
         welcomeStage.addActor(labelEspace);
         welcomeStage.addActor(labelTitle);
 
-
-
     }
 
     public void render(float delta) {
+
         Gdx.gl.glClearColor(.29f,0,.12f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SpriteBatch batch = game.getBatch();
