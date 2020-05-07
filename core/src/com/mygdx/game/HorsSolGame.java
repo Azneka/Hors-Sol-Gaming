@@ -25,12 +25,7 @@ import java.awt.*;
 public class HorsSolGame extends Game {
 	SpriteBatch batch;
 	Sprite sprite;
-	Texture img;
-	//BitmapFont font;
 	ScreenViewport viewport;
-	//Stage welcomeStage;
-	//Stage mainMenuStage;
-	//Stage gameStage;
 	//Camera gameCamera;
 	final float gameWorldWidth = 2000; //Gdx.graphics.getWidth(); ne fonctionne pas ici, comment faire pour que ce soit adaptable selon les écrans ?
 	final float gameWorldHeight = 1000; //Gdx.graphics.getHeight();
@@ -41,13 +36,9 @@ public class HorsSolGame extends Game {
 		viewport = new ScreenViewport();
 
 
-
-
 		batch = new SpriteBatch();
-		sprite = new Sprite(new Texture(Gdx.files.internal("waterfall.jpg")));
+		sprite = new Sprite(new Texture(Gdx.files.internal("salleBDE.png")));
 		sprite.setSize(gameWorldWidth,gameWorldHeight);
-		img = new Texture("zeldapixel.png");
-		//font = new BitmapFont();
 		setScreen(new WelcomeScreen(this));
 	}
 
@@ -59,26 +50,15 @@ public class HorsSolGame extends Game {
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
-		//font.dispose();
 	}
 
 	public SpriteBatch getBatch() {
 		return batch;
 	}
 
-	//public BitmapFont getFont() { return font; }
 
-//	public Stage getWelcomeStage() {
-//		return welcomeStage;
-//	}
-//
-//	public Stage getMainMenuStage() { return mainMenuStage; }
-//
-//	public Stage getGameStage() { return gameStage; }
-//
 	public Sprite getSprite() { return sprite; }
-//
+
 //	public Camera getGameCamera() { return gameCamera; }
 
 	public ScreenViewport getViewport() { return viewport; }
@@ -87,11 +67,5 @@ public class HorsSolGame extends Game {
 
 	public float getGameWorldHeight() { return gameWorldHeight; }
 
-//	public double getHeight() {
-//		return height;
-//	}
-//
-//	public double getWidth() {
-//		return width;
-//	}
+
 }
