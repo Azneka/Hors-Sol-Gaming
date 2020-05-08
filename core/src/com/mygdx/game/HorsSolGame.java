@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.screens.MainGameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
@@ -26,6 +27,7 @@ public class HorsSolGame extends Game {
 	SpriteBatch batch;
 	Sprite sprite;
 	ScreenViewport viewport;
+	//FitViewport viewport;
 	//Camera gameCamera;
 	final float gameWorldWidth = 2000; //Gdx.graphics.getWidth(); ne fonctionne pas ici, comment faire pour que ce soit adaptable selon les écrans ?
 	final float gameWorldHeight = 1000; //Gdx.graphics.getHeight();
@@ -34,6 +36,7 @@ public class HorsSolGame extends Game {
 	@Override
 	public void create () {
 		viewport = new ScreenViewport();
+		//viewport = new FitViewport();
 
 
 		batch = new SpriteBatch();
