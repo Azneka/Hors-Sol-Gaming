@@ -34,7 +34,7 @@ public class MainGameScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        img = new Texture("zeldapixel.png");
+        img = new Texture("perso1.png");
     }
 
     @Override
