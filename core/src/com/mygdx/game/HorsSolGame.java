@@ -25,7 +25,6 @@ import java.awt.*;
 
 public class HorsSolGame extends Game {
 	SpriteBatch batch;
-	Sprite sprite;
 	ScreenViewport viewport;
 	//FitViewport viewport;
 	//Camera gameCamera;
@@ -37,11 +36,7 @@ public class HorsSolGame extends Game {
 	public void create () {
 		viewport = new ScreenViewport();
 		//viewport = new FitViewport();
-
-
 		batch = new SpriteBatch();
-		sprite = new Sprite(new Texture(Gdx.files.internal("salleBDE.png")));
-		sprite.setSize(gameWorldWidth,gameWorldHeight);
 		setScreen(new WelcomeScreen(this));
 	}
 
@@ -59,8 +54,6 @@ public class HorsSolGame extends Game {
 		return batch;
 	}
 
-
-	public Sprite getSprite() { return sprite; }
 
 //	public Camera getGameCamera() { return gameCamera; }
 

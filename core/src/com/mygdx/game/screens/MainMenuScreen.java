@@ -75,7 +75,7 @@ public class MainMenuScreen extends ScreenAdapter {
 
         mainMenuStage.addActor(tablePlayButton);
 
-        Skin playButtonSkin = new Skin(Gdx.files.internal("skin/glassy/glassy-ui.json"));
+        Skin playButtonSkin = new Skin(Gdx.files.internal("skin/craftacular/craftacular-ui.json"));
         playButton = new TextButton("JOUER", playButtonSkin);
 
 //        BitmapFont fontSimple = new BitmapFont();
@@ -108,7 +108,7 @@ public class MainMenuScreen extends ScreenAdapter {
 
         mainMenuStage.addActor(tableOptionsButton);
 
-        Skin optionsButtonSkin = new Skin(Gdx.files.internal("skin/glassy/glassy-ui.json"));
+        Skin optionsButtonSkin = new Skin(Gdx.files.internal("skin/craftacular/craftacular-ui.json"));
         optionsButton = new TextButton("OPTIONS", optionsButtonSkin);
 
 //        BitmapFont fontSimple = new BitmapFont();
