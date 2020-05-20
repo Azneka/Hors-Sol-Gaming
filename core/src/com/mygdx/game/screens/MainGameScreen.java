@@ -116,6 +116,18 @@ public class MainGameScreen extends ScreenAdapter {
 
     public void moveCharacter(Texture perso) {
         SpriteBatch batch = game.getBatch();
+        if(y<145) {
+            y=Gdx.graphics.getHeight()-200;
+        }
+        if(y>Gdx.graphics.getHeight()-200) {
+            y=145;
+        }
+        if(x<0) {
+            x=Gdx.graphics.getWidth();
+        }
+        if(x>Gdx.graphics.getWidth()) {
+            x=0;
+        }
         if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
             y+=speed;
         } else if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
