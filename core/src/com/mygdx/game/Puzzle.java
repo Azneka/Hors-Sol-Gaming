@@ -10,31 +10,29 @@ import java.awt.event.*;
 public class Puzzle extends JFrame {
     JFrame f = new JFrame();
 
-    ImageIcon ic1 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\1.jpg");
-    JButton b1 = new JButton(ic1);
-    ImageIcon ic2 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\5.jpg");
-    JButton b2 = new JButton(ic2);
-    ImageIcon ic3 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\2.jpg");
-    JButton b3 = new JButton(ic3);
-    ImageIcon ic4 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\7.jpg");
-    JButton b4 = new JButton(ic4);
-    ImageIcon ic5 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\4.jpg");
-    JButton b5 = new JButton(ic5);
-    ImageIcon ic6 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\6.jpg");
-    JButton b6 = new JButton(ic6);
-    ImageIcon ic7 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\8.jpg");
-    JButton b7 = new JButton(ic7);
-    ImageIcon ic8 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\3.jpg");
-    JButton b8 = new JButton(ic8);
-    ImageIcon ic9 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\9.jpg");
-    JButton b9 = new JButton(ic9);
-
-    Felicitations Msg;
-
-
-
+    ImageIcon ic1,ic2,ic3,ic4,ic5,ic6,ic7,ic8,ic9;
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
 
     public Puzzle() {
+        // Charger les différentes images
+        ic1 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\1.jpg");
+        b1 = new JButton(ic1);
+        ic2 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\5.jpg");
+        b2 = new JButton(ic2);
+        ic3 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\2.jpg");
+        b3 = new JButton(ic3);
+        ic4 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\7.jpg");
+        b4 = new JButton(ic4);
+        ic5 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\4.jpg");
+        b5 = new JButton(ic5);
+        ic6 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\6.jpg");
+        b6 = new JButton(ic6);
+        ic7 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\8.jpg");
+        b7 = new JButton(ic7);
+        ic8 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\3.jpg");
+        b8 = new JButton(ic8);
+        ic9 = new ImageIcon("C:\\Users\\SALMA\\Documents\\CEPI\\9.jpg");
+        b9 = new JButton(ic9);
 
         f.setTitle("Puzzle");
         f.setSize(500, 500);
@@ -45,7 +43,7 @@ public class Puzzle extends JFrame {
         //On définit le layout à utiliser sur le content pane
         //Trois lignes sur Trois colonnes
         f.setLayout(new GridLayout(3, 3));
-        //On ajoute le bouton au content pane de la JFrame
+        //On ajoute les boutons au content pane de la JFrame
         f.getContentPane().add(b1);
         f.getContentPane().add(b2);
         f.getContentPane().add(b3);
@@ -114,22 +112,14 @@ public class Puzzle extends JFrame {
                     b9.setIcon(b8.getIcon());
                     b8.setIcon(i);
                 }
+                //Condition pour gagner
                 if ((b1.getIcon() == ic1) && (b2.getIcon() == ic3)
                         && (b3.getIcon() == ic8) && (b4.getIcon() == ic5)
                         && (b6.getIcon() == ic6) && (b7.getIcon() == ic4)
                         && (b8.getIcon() == ic7) && (b5.getIcon() == ic2)
                         && (b9.getIcon() == ic9)) {
 
-                    Msg= new Felicitations();
-                    Msg.create();
-                    Msg.render();
-
-
-
-
-
-
-
+                    JOptionPane.showMessageDialog(null, "Félicitations", "Message", JOptionPane.OK_OPTION);
                 }
             }
         };
@@ -146,6 +136,7 @@ public class Puzzle extends JFrame {
 
 
     }
+
 
 
 }
