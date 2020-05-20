@@ -1,6 +1,7 @@
 package com.mygdx.game.screens;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -22,6 +23,8 @@ public class WelcomeScreen extends ScreenAdapter {
     HorsSolGame game;
     Stage welcomeStage;
     //ShapeRenderer shapeRenderer = new ShapeRenderer();
+    Sound music=Gdx.audio.newSound(Gdx.files.internal("music.mp3"));
+
 
     public WelcomeScreen(HorsSolGame game) {
         this.game = game;
@@ -29,6 +32,8 @@ public class WelcomeScreen extends ScreenAdapter {
 
         welcomeStage = new Stage(viewport);
         Gdx.input.setInputProcessor(welcomeStage);
+
+        music.loop(0.5f,1.0f,0.0f);
     }
 
     public void show() {
